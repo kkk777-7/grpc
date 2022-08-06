@@ -1,0 +1,13 @@
+syntax = "proto3";
+package game;
+
+option go_package = "pkg/protobuf";
+
+enum Color{
+    UNKNOWN = 0;
+    EMPTY = 1;
+    BLACK = 2;
+    White = 3;
+	Wall = 4;
+	None = 5;
+}
