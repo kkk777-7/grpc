@@ -7,7 +7,7 @@ enum Color{
     UNKNOWN = 0;
     EMPTY = 1;
     BLACK = 2;
-    White = 3;
-	Wall = 4;
-	None = 5;
+    WHITE = 3;
+	WALL = 4;
+	NONE = 5;
 }
