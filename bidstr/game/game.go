@@ -61,7 +61,7 @@ func (g *Game) Display(me Color) {
 	}
 
 	fmt.Print(" |")
-	rs := []rune("12345678")
+	rs := []rune("ABCDEFGH")
 	for i, r := range rs {
 		fmt.Printf("%v", string(r))
 		if i < len(rs)-1 {
