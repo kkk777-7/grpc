@@ -1,0 +1,51 @@
+syntax = "proto3";
+package pancake.maker;
+
+option go_package = "pkg/grpc";
+
+import "google/protobuf/timestamp.proto";
+
+service PancakeBakerService{
+    rpc Bake(BakeRequest) returns (BakeResponse) {}
+
+    rpc Report(ReportRequest) returns (ReportResponse) {}
+} 
+
+message Pancake{
+    enum Menu{
+        UNKNOWN = 0;
+        CLASSIC = 1;
+        BANANA_AND_WHIP = 2;
+        BACON_AND_CHEESE = 3;
+        MIX_BERRY = 4;
+        BAKED_MARSHMALLOW = 5;
+        SPICY_CURRY = 6;
+    }
+
+    string chef_name = 1;
+    Menu menu = 2;
+    float technical_score = 3;
+    google.protobuf.Timestamp create_time = 15;
+}
+
+message Report{
+    message BakeCount{
+        Pancake.Menu menu = 1;
+        int32 count = 2;
+    }
+    repeated BakeCount bake_counts = 1;
+}
+
+message BakeRequest{
+    Pancake.Menu menu = 1;
+}
+
+message BakeResponse{
+    Pancake pancake = 1;
+}
+
+message ReportRequest{}
+
+message ReportResponse{
+    Report report = 1;
+}
